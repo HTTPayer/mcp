@@ -1,5 +1,5 @@
-const BASE = "https://api.httpayer.com/v1";
-const PROXY_BASE = "https://api.httpayer.com";
+const BASE = "https://api.httpayer.com";
+const BALANCE_PATH = "/v1/credits/balance";
 const ALLOWED_HOST = "api.httpayer.com";
 
 function assertHttpayerHost(url: string): void {
@@ -40,6 +40,7 @@ async function apiRequest(
 ): Promise<unknown> {
   const url = `${BASE}${path}`;
   assertHttpayerHost(url);
+
   const res = await fetch(url, {
     method,
     headers: {
@@ -60,7 +61,7 @@ async function apiRequest(
 }
 
 export function getBalance(apiKey: string) {
-  return apiRequest(apiKey, "/credits/balance");
+  return apiRequest(apiKey, BALANCE_PATH);
 }
 
 export function getLimits(apiKey: string) {
@@ -78,7 +79,7 @@ export async function proxyFetch(
   simulate = false
 ): Promise<ProxyResult> {
   const endpoint = simulate ? "/proxy/sim" : "/proxy";
-  const proxyUrl = `${PROXY_BASE}${endpoint}`;
+  const proxyUrl = `${BASE}${endpoint}`;
   assertHttpayerHost(proxyUrl);
 
   const payload: Record<string, unknown> = {

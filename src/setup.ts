@@ -23,7 +23,7 @@ async function validateApiKey(
   apiKey: string
 ): Promise<{ ok: boolean; reason?: string }> {
   try {
-    const res = await fetch("https://api.httpayer.com/v1/credits/balance", {
+    const res = await fetch("https://api.httpayer.com/v1/credits/balance", { // único endpoint con /v1
       headers: { "x-api-key": apiKey },
     });
     if (res.ok) return { ok: true };
