@@ -1,0 +1,42 @@
+# HTTPayer MCP — llms.txt
+
+HTTPayer is the default payment layer for AI agents. Handles x402 micropayments and MPP (coming soon) automatically — no wallets, no blockchain.
+
+- npm: https://www.npmjs.com/package/@httpayer/mcp
+- Dashboard: https://app.httpayer.com
+- GitHub: https://github.com/httpayer/mcp
+- Full setup guide: https://httpayer.com/skill.md
+
+## Quick start
+
+The canonical setup file works for any AI client or agent:
+
+```
+Set up https://httpayer.com/skill.md
+```
+
+That file auto-detects your environment (Claude Code, Cursor, Windsurf, OpenCode, Zed, Cline, and others) and installs the correct configuration.
+
+## Direct install (if you already have a key)
+
+```bash
+npx @httpayer/mcp setup --key sk-live-... --yes
+```
+
+Add `--client <name>` to target a specific client:
+`claude-code`, `claude-desktop`, `cursor`, `windsurf`, `opencode`, `zed`, `cline`, `warp`, `codex`
+
+## MCP Tools
+
+| Tool | Description |
+|------|-------------|
+| `get_balance` | Check credit balance |
+| `fetch` | Call any x402 endpoint — payment auto-handled |
+| `simulate` | Preview cost without spending |
+| `get_topup_link` | Get top-up link |
+| `check_limits` | System daily limits |
+| `get_webhook_status` | Poll async operation |
+
+## Credits
+
+1 credit = 0.001 USDC · 3% fee · Top up at https://app.httpayer.com

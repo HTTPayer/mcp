@@ -1,6 +1,6 @@
 {
   "name": "@httpayer/mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for HTTPayer — x402 payments for AI agents, no wallet required",
   "type": "module",
   "bin": {
@@ -34,6 +34,7 @@
   "files": [
     "dist",
     "SKILL.md",
+    "llms.txt",
     "LICENSE"
   ],
   "dependencies": {

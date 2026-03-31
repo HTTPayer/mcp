@@ -119,7 +119,8 @@ export async function proxyFetch(
     res.status === 502 &&
     body !== null &&
     typeof body === "object" &&
-    "webhook_id" in body
+    "webhook_id" in body &&
+    typeof (body as Record<string, unknown>).webhook_id === "string"
   ) {
     result.webhook_id = (body as { webhook_id: string }).webhook_id;
   }

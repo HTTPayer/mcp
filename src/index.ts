@@ -3,10 +3,9 @@
 const args = process.argv.slice(2);
 
 if (args.includes("setup") || args.includes("--setup")) {
-  const keyFlag = args.indexOf("--key");
-  const key = keyFlag !== -1 ? args[keyFlag + 1] : undefined;
-  const { runSetup } = await import("./setup.js");
-  await runSetup(key);
+  const { runSetup, parseSetupArgs } = await import("./setup.js");
+  const opts = parseSetupArgs(args.filter((a) => a !== "setup" && a !== "--setup"));
+  await runSetup(opts);
 } else {
   const { startServer } = await import("./server.js");
   await startServer();
