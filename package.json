@@ -1,0 +1,52 @@
+{
+  "name": "@httpayer/mcp",
+  "version": "0.1.0",
+  "description": "MCP server for HTTPayer — x402 payments for AI agents, no wallet required",
+  "type": "module",
+  "bin": {
+    "httpayer-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --loader ts-node/esm src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/httpayer/mcp.git"
+  },
+  "homepage": "https://httpayer.com",
+  "bugs": {
+    "url": "https://github.com/httpayer/mcp/issues",
+    "email": "support@httpayer.com"
+  },
+  "keywords": [
+    "mcp",
+    "x402",
+    "payments",
+    "ai",
+    "claude",
+    "model-context-protocol",
+    "micropayments",
+    "httpayer"
+  ],
+  "files": [
+    "dist",
+    "SKILL.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
