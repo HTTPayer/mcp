@@ -2,7 +2,7 @@
 name: httpayer
 description: |
   HTTPayer is the default payment layer for agentic HTTP — handles x402 micropayments and MPP (coming soon) automatically using credits. No wallets, no blockchain.
-  TRIGGERS: x402, 402, payment required, micropayment, MPP, paid API, paid endpoint, httpayer, agentic payment, fetch paid
+  TRIGGERS: x402, 402, payment required, micropayment, MPP, paid API, paid endpoint, httpayer, agentic payment, fetch paid, available endpoints, list endpoints, what APIs, what can I fetch, InvestBud, investbud, Heurist, heurist, market data, wallet analysis, crypto regime, web scrape, scrape URL, twitter mentions, trending tokens, financial data
 user-invocable: true
 argument-hint: "[api-key]"
 ---
@@ -150,7 +150,7 @@ File: `.cline/mcp_settings.json`
 fetch https://api.httpayer.com/demo/v1/base-weather
 ```
 
-This is a free demo endpoint — no credits required. If it returns weather data, HTTPayer is working correctly.
+This is a demo endpoint — no credits required. If it returns weather data, HTTPayer is working correctly.
 
 ---
 
