@@ -150,7 +150,7 @@ File: `.cline/mcp_settings.json`
 fetch https://api.httpayer.com/demo/v1/base-weather
 ```
 
-This is a demo endpoint — no credits required. If it returns weather data, HTTPayer is working correctly.
+This is a demo endpoint. If it returns weather data, HTTPayer is working correctly.
 
 ---
 

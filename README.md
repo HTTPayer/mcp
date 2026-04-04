@@ -112,7 +112,7 @@ User prompt
     │
     ▼
 AI agent (Claude Code, Cursor, Windsurf...)
-    │  uses MCP tools
+    │  uses MCP tools + prompts + resources
     ▼
 @httpayer/mcp (local MCP server via npx)
     │  REST calls with x-api-key header
@@ -127,10 +127,34 @@ Target x402-gated API
 
 1. Your client launches the MCP server via `npx -y @httpayer/mcp@latest` on startup (stdio transport).
 2. The server reads the API key from `~/.httpayer/mcp-config.json`.
-3. The agent receives the tool list and system instructions in its context.
+3. The agent receives the tool list, system instructions, prompts, and resources in its context.
 4. When the agent calls `fetch`, the MCP server forwards the request to `POST https://api.httpayer.com/proxy`.
 5. HTTPayer's proxy detects a 402, pays using your credits, retries, and returns the final response.
 6. The result (status, body, headers) comes back to the agent.
+
+---
+
+## MCP capabilities
+
+This server exposes three MCP primitives so agents get context automatically — without the user having to ask.
+
+### Tools
+
+Six tools (see full reference below).
+
+### Prompts
+
+| Name | Description |
+|------|-------------|
+| `httpayer-context` | Injects full HTTPayer payment context into the agent. Clients that support prompts will load this automatically at session start. |
+
+Compatible clients (Claude Desktop, Cursor, and others) call `prompts/list` on connection and inject these into the agent's context proactively.
+
+### Resources
+
+| URI | Description |
+|-----|-------------|
+| `httpayer://skill.md` | Full setup guide, trigger patterns, available endpoints, and workflow. Clients can pull this on demand as grounding context. |
 
 ---
 
