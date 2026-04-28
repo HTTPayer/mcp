@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.httpayer/mcp",
-  "description": "Agentic payments for AI agents — handles x402 micropayments automatically using credits. No wallets, no blockchain.",
+  "name": "io.github.HTTPayer/mcp",
+  "description": "x402 micropayments for AI agents — credits-based, no wallets, no blockchain.",
   "repository": {
     "url": "https://github.com/httpayer/mcp",
     "source": "github"
   },
-  "version": "0.1.6",
+  "version": "0.1.8",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@httpayer/mcp",
-      "version": "0.1.6",
+      "version": "0.1.8",
       "transport": {
         "type": "stdio"
       }

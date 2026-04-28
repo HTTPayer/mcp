@@ -1,4 +1,5 @@
 const BASE = "https://api.httpayer.com";
+const INDEX_BASE = "https://index.httpayer.com";
 const BALANCE_PATH = "/v1/credits/balance";
 const ALLOWED_HOST = "api.httpayer.com";
 
@@ -70,6 +71,39 @@ export function getLimits(apiKey: string) {
 
 export function getWebhookStatus(apiKey: string, webhookId: string) {
   return apiRequest(apiKey, `/webhooks/${webhookId}`);
+}
+
+async function indexRequest(path: string): Promise<unknown> {
+  const url = `${INDEX_BASE}${path}`;
+  const res = await fetch(url, { headers: { accept: "application/json" } });
+  const text = await res.text();
+  if (!res.ok) throw new Error(`HTTPayer Index ${res.status}: ${text}`);
+  try {
+    return JSON.parse(text);
+  } catch {
+    return text;
+  }
+}
+
+export function getIndexProviders() {
+  return indexRequest("/v1/providers");
+}
+
+export function getIndexStats() {
+  return indexRequest("/v1/stats");
+}
+
+export async function searchIndex(
+  apiKey: string,
+  query: string,
+  maxPrice?: number,
+  tags?: string
+): Promise<ProxyResult> {
+  const params: Record<string, string> = { query };
+  if (maxPrice !== undefined) params.max_price = String(maxPrice);
+  if (tags !== undefined) params.tags = tags;
+
+  return proxyFetch(apiKey, `${INDEX_BASE}/v1/search`, { method: "GET", params });
 }
 
 export async function proxyFetch(

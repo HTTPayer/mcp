@@ -1,7 +1,7 @@
 {
   "name": "@httpayer/mcp",
-  "version": "0.1.6",
-  "mcpName": "io.github.httpayer/mcp",
+  "version": "0.1.8",
+  "mcpName": "io.github.HTTPayer/mcp",
   "description": "Agentic payments for AI agents — x402 micropayments via HTTPayer credits. No wallets, no blockchain.",
   "type": "module",
   "bin": {
